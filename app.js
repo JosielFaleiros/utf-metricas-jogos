@@ -3,6 +3,7 @@ require('marko/node-require'); // Allow Node.js to require and load `.marko` fil
 var express = require('express');
 var markoExpress = require('marko/express');
 var indexlay = require('./view/index');
+var mongoose = require('mongoose');
 
 var app = express();
 
@@ -14,5 +15,7 @@ app.get('/', function(req, res) {
         colors: ['blue', 'red', 'green']
     });
 });
+
+mongoose.connect('mongodb://localhost/campeonato', {useMongoClient: true});
 
 app.listen(8080);
