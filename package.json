@@ -1,0 +1,15 @@
+{
+  "name": "projeto-metricas",
+  "version": "1.0.0",
+  "description": "Projeto para contagem de tempo para cada tarefa.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JosielFaleiros",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "marko": "^4.5.3"
+  }
+}
