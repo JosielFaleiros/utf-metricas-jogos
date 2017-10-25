@@ -2,15 +2,16 @@ require('marko/node-require'); // Allow Node.js to require and load `.marko` fil
 
 var express = require('express');
 var markoExpress = require('marko/express');
-var template = require('./view/index');
+var indexlay = require('./view/index');
 
 var app = express();
 
 app.use(markoExpress()); //enable res.marko(template, data)
 
 app.get('/', function(req, res) {
-    res.marko(template, {
-        name: 'Faleiros'
+    res.marko(indexlay, {
+        name: 'Santos',
+        colors: ['blue', 'red', 'green']
     });
 });
 
