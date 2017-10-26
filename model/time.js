@@ -1,4 +1,5 @@
 var mongoose = require("mongoose")
+var Jogador = require('./jogador')
 
 var TimeSchema = new mongoose.Schema({
   nome: {
@@ -19,7 +20,8 @@ var TimeSchema = new mongoose.Schema({
     type: Number,
     required: true,
     default: 0
-  }
+  },
+  jogadores: [Jogador.schema]
 })
 
 TimeSchema.statics.getAll = async function () {
@@ -27,12 +29,17 @@ TimeSchema.statics.getAll = async function () {
 }
 
 TimeSchema.statics.byId = async function (id) {
-  return await this.findById(id)
+  return await this.findById(id).populate('jogadores.cidade')
 }
 
 TimeSchema.statics.new = async function (time) {
   novoTime = new this(time)
   return await novoTime.save()
+}
+
+TimeSchema.methods.newJogador = async function (jogador) {
+  this.jogadores.push(jogador)
+  return await this.save()
 }
 
 module.exports = mongoose.model('Time', TimeSchema)
