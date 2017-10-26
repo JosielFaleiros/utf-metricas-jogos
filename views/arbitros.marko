@@ -1,5 +1,4 @@
 <h1>Arbitros</h1>
-<h2>${data.name}</h2>
 <table>
   <tr>
     <th>Nome</th>
@@ -15,7 +14,7 @@
     <td>${arbitro.numero}</td>
     <td>${arbitro.bairro}</td>
     <td>${arbitro.cep}</td>
-    <td>${arbitro.cidade.nome}</td>
+    <td>${arbitro.cidade.nome}/${arbitro.cidade.estado}</td>
   </tr>
 </table>
 <hr>
@@ -26,7 +25,7 @@
   Bairro: <input type="text" name="bairro" required><br>
   Cep: <input type="text" name="cep" required><br>
   Cidade: <select name="cidade">
-    <option for(cidade in data.cidades) value="${cidade._id}">${cidade.nome}</option>
+    <option for(cidade in data.cidades) value="${cidade._id}">${cidade.nome}/${cidade.estado}</option>
   </select> <br>
   <input type="submit" value="Submit">
 </form>
