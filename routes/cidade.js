@@ -3,16 +3,15 @@ var router = express.Router()
 var Cidade = require('../model/cidade')
 
 router.get('/', async function(req, res) {
-    cidades = await Cidade.find().sort('nome').exec()
+    cidades = await Cidade.getAll()
     res.render('cidades', {
         cidades: cidades
     })
 })
 
-router.post('/', async function(req, res) {
-    novaCidade = Cidade(req.body)
-    await novaCidade.save()
-    res.redirect('/cidades')
+router.post('/new', async function(req, res) {
+    novaCidade = await Cidade.new(req.body)
+    res.redirect('/cidade')
 })
 
 module.exports = router

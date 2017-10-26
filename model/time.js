@@ -22,4 +22,17 @@ var TimeSchema = new mongoose.Schema({
   }
 })
 
+TimeSchema.statics.getAll = async function () {
+  return await this.find().sort('-pontos')
+}
+
+TimeSchema.statics.byId = async function (id) {
+  return await this.findById(id)
+}
+
+TimeSchema.statics.new = async function (time) {
+  novoTime = new this(time)
+  return await novoTime.save()
+}
+
 module.exports = mongoose.model('Time', TimeSchema)

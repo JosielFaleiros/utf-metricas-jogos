@@ -4,18 +4,17 @@ var Arbitro = require('../model/arbitro')
 var Cidade = require('../model/cidade')
 
 router.get('/', async function(req, res) {
-    arbitros = await Arbitro.find().populate('cidade').sort('nome').exec()
-    cidades = await Cidade.find().sort('nome').exec()
+    arbitros = await Arbitro.getAll()
+    cidades = await Cidade.getAll()
     res.render('arbitros', {
         arbitros: arbitros,
         cidades: cidades
     })
 })
 
-router.post('/', async function(req, res) {
-    novoArbitro = Arbitro(req.body)
-    await novoArbitro.save()
-    res.redirect('/arbitros')
+router.post('/new', async function(req, res) {
+    novoArbitro = Arbitro.new(req.body)
+    res.redirect('/arbitro')
 })
 
 module.exports = router

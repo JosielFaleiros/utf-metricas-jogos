@@ -28,4 +28,13 @@ var ArbitroSchema = new mongoose.Schema({
   }
 })
 
+ArbitroSchema.statics.getAll = async function () {
+  return await this.find().populate('cidade').sort('nome')
+}
+
+ArbitroSchema.statics.new = async function (arbitro) {
+  novoArbitro = new this(arbitro)
+  return await novoArbitro.save()
+}
+
 module.exports = mongoose.model('Arbitro', ArbitroSchema)
