@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded())
 
 app.use('/cidades', routes.cidade)
 app.use('/arbitros', routes.arbitro)
+app.use('/times', routes.time)
 
 
 app.listen(8080)
