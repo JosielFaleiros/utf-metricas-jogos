@@ -14,7 +14,10 @@ app.use(Marko)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 
-
+app.use(function(req, res, next) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8')
+    next()
+})
 app.use('/cidade', routes.cidade)
 app.use('/arbitro', routes.arbitro)
 app.use('/time', routes.time)
