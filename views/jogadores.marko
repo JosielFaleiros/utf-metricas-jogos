@@ -1,0 +1,36 @@
+<h1>${time.nome}</h1>
+<h2>Jogadores</h2>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Rua</th>
+    <th>Numero</th>
+    <th>Bairro</th>
+    <th>CEP</th>
+    <th>Cidade</th>
+  </tr>
+  <tr for(jogador in data.jogadores)>
+    <td>${jogador.nome}</td>
+    <td>${jogador.rua}</td>
+    <td>${jogador.numero}</td>
+    <td>${jogador.bairro}</td>
+    <td>${jogador.cep}</td>
+    <td>${jogador.cidade.nome}/${jogador.cidade.estado}</td>
+  </tr>
+</table>
+<hr>
+<form action="/jogador/new" method="POST">
+  <input type="hidden" name="time" value="${time._id}">
+  Nome: <input type="text" name="nome" required><br>
+  Rua: <input type="text" name="rua" required><br>
+  Numero: <input type="text" name="numero" required><br>
+  Bairro: <input type="text" name="bairro" required><br>
+  Cep: <input type="text" name="cep" required><br>
+  Cidade: 
+  <select name="cidade">
+    <option for(cidade in data.cidades) value="${cidade._id}">${cidade.nome}/${cidade.estado}</option>
+  </select> <br>
+  <input type="submit" value="Submit">
+</form>
+<a href="/cidade">cidades</a> <br>
+<a href="/time">times</a>

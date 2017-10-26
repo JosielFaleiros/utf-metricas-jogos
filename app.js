@@ -21,6 +21,7 @@ app.use(function(req, res, next) {
 app.use('/cidade', routes.cidade)
 app.use('/arbitro', routes.arbitro)
 app.use('/time', routes.time)
+app.use('/jogador', routes.jogador)
 
 
 app.listen(8080)
