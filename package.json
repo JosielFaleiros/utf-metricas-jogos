@@ -4,13 +4,18 @@
   "description": "Projeto para contagem de tempo para cada tarefa.",
   "main": "app.js",
   "scripts": {
+    "nodemon": "nodemon --ignore 'views/*.js' app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "JosielFaleiros",
+  "author": "JosielFaleiros; RafaelSantos",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "marko": "^4.5.3",
+    "express-marko": "^1.4.0",
     "mongoose": "^4.12.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }

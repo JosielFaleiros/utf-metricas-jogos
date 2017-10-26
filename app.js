@@ -1,21 +1,22 @@
-require('marko/node-require'); // Allow Node.js to require and load `.marko` files
+const express = require('express')
+const bodyParser = require('body-parser')
+const path = require('path')
+const Marko = require('express-marko')
+const mongoose = require('mongoose')
+const routes = require('./routes')
 
-var express = require('express');
-var markoExpress = require('marko/express');
-var indexlay = require('./view/index');
-var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/campeonato', {useMongoClient: true})
 
-var app = express();
+const app = express()
 
-app.use(markoExpress()); //enable res.marko(template, data)
+// view engine setup
+app.set('views', path.join(__dirname, 'views'))
+app.use(Marko)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded())
 
-app.get('/', function(req, res) {
-    res.marko(indexlay, {
-        name: 'Santos',
-        colors: ['blue', 'red', 'green']
-    });
-});
 
-mongoose.connect('mongodb://localhost/campeonato', {useMongoClient: true});
+app.use('/', routes.cidade)
 
-app.listen(8080);
+
+app.listen(8080)
