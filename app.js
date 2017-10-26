@@ -5,6 +5,8 @@ const Marko = require('express-marko')
 const routes = require('./routes')
 
 const app = express()
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/campeonato', {useMongoClient: true})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -13,7 +15,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 
 
-app.use('/', routes.cidade)
+app.use('/cidades', routes.cidade)
 
 
 app.listen(8080)

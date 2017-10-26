@@ -2,13 +2,10 @@
 
 const fs = require("fs")
 const path = require("path")
-const mongoose = require('mongoose')
 
 const basename  = path.basename(__filename)
 // const config    = require(__dirname + '/../../config/config.js')['development']
 // const sequelize = new Sequelize(config.database, config.username, config.password, config)
-
-mongoose.connect('mongodb://localhost/campeonato', {useMongoClient: true})
 
 fs
 .readdirSync(__dirname)
