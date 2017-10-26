@@ -4,6 +4,7 @@ var Arbitro = require('../model/arbitro')
 var Cidade = require('../model/cidade')
 
 router.get('/', async function(req, res) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
     arbitros = await Arbitro.getAll()
     cidades = await Cidade.getAll()
     res.render('arbitros', {

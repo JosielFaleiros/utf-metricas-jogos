@@ -3,6 +3,7 @@ var router = express.Router()
 var Cidade = require('../model/cidade')
 
 router.get('/', async function(req, res) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8')
     cidades = await Cidade.getAll()
     res.render('cidades', {
         cidades: cidades
