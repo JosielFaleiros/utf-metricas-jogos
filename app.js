@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const Marko = require('express-marko')
 const routes = require('./routes')
-
 const app = express()
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/campeonato', {useMongoClient: true})
@@ -18,10 +17,13 @@ app.use(function(req, res, next) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
     next()
 })
-app.use('/cidade', routes.cidade)
-app.use('/arbitro', routes.arbitro)
-app.use('/time', routes.time)
-app.use('/jogador', routes.jogador)
+
+/*
+Adicionando as rotas automaticamente.
+
+https://stackoverflow.com/questions/8312459/iterate-through-object-properties#answer-40737306
+*/
+Object.keys(routes).map(e => app.use('/'+e, routes[e]))
 
 
 app.listen(8080)
