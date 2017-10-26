@@ -1,16 +1,17 @@
 var express = require('express')
 var router = express.Router()
-var Cidade = require('../model/cidade')
+
+var models = require('../model')
 
 router.get('/', async function(req, res) {
-    cidades = await Cidade.getAll()
+    cidades = await models.cidade.getAll()
     res.render('cidades', {
         cidades: cidades
     })
 })
 
 router.post('/new', async function(req, res) {
-    novaCidade = await Cidade.new(req.body)
+    novaCidade = await models.cidade.new(req.body)
     res.redirect('/cidade')
 })
 

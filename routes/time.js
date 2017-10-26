@@ -1,16 +1,17 @@
 var express = require('express')
 var router = express.Router()
-var Time = require('../model/time')
+
+var models = require('../model')
 
 router.get('/', async function(req, res) {
-    times = await Time.getAll()
+    times = await models.time.getAll()
     res.render('times', {
         times: times
     })
 })
 
 router.post('/new', async function(req, res) {
-    novoTime = await Time.new(req.body)
+    novoTime = await models.time.new(req.body)
     res.redirect('/time')
 })
 

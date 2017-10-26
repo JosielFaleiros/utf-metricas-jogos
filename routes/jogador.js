@@ -1,13 +1,12 @@
 var express = require('express')
 var router = express.Router()
-var Time = require('../model/time')
-var Cidade = require('../model/cidade')
-var Jogador = require('../model/jogador')
+
+var models = require('../model')
 
 router.get('/:id', async function(req, res) {
     id = req.params['id']
-    time = await Time.byId(id)
-    cidades = await Cidade.getAll()
+    time = await models.time.byId(id)
+    cidades = await models.cidade.getAll()
     res.render('jogadores', {
         time: time,
         cidades: cidades,
@@ -16,7 +15,7 @@ router.get('/:id', async function(req, res) {
 
 router.post('/new', async function(req, res) {
     id = req.body.time
-    time = await Time.byId(id)
+    time = await models.Time.byId(id)
     await time.newJogador(req.body)    
     res.redirect('/jogador/' + id)
 })
