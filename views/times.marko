@@ -8,17 +8,18 @@
     <th>SG</th>
   </tr>
   <tr for(time in data.times)>
-    <td>${time.nome}</td>
+    <td><a href="/time/${time._id}">${time.nome}</a></td>
     <td>${time.pontos}</td>
     <td>${time.golsPro}</td>
     <td>${time.golsContra}</td>
     <td>${time.golsPro - time.golsContra}</td>
   </tr>
 </table>
+<hr>
 <h2>Novo Time</h2>
-<form action="/times" method="POST">
+<form action="/time/new" method="POST">
   Nome: <input type="text" name="nome" required> <br>
   <input type="submit" value="Submit">
 </form>
-<a href="/arbitros">arbitros</a> <br>
-<a href="/cidades">cidades</a>
+<a href="/arbitro">arbitros</a> <br>
+<a href="/cidade">cidades</a>
