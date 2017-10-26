@@ -14,11 +14,4 @@ router.post('/new', async function(req, res) {
     res.redirect('/time')
 })
 
-router.get('/:id', async function(req, res) {
-    id = req.param('id')
-    time = await Time.byId(id)
-    console.log(time.nome)
-    res.redirect('/time')
-})
-
 module.exports = router
