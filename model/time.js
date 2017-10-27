@@ -1,5 +1,5 @@
 var mongoose = require("mongoose")
-var Jogador = require('./jogador')
+var models = require('./')
 
 var TimeSchema = new mongoose.Schema({
   nome: {
@@ -21,7 +21,7 @@ var TimeSchema = new mongoose.Schema({
     required: true,
     default: 0
   },
-  jogadores: [Jogador.schema]
+  jogadores: [models.jogador.schema]
 })
 
 TimeSchema.statics.getAll = async function () {
