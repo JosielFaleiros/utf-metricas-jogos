@@ -13,10 +13,10 @@ router.get('/:id', async function(req, res) {
     })
 })
 
-router.post('/new', async function(req, res) {
+router.post('/', async function(req, res) {
     id = req.body.time
     time = await models.time.byId(id)
-    await time.newJogador(req.body)    
+    await time.newJogador(req.body)
     res.redirect('/jogador/' + id)
 })
 
