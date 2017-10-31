@@ -41,6 +41,10 @@ SumulaSchema.statics.byId = async function (id) {
 } 
 
 SumulaSchema.statics.new = async function (sumula) {
+  if (sumula.time == sumula.time2) {
+    throw new Error("Times iguais")
+  }
+  
   newsumula = new this(sumula)
 
   time1 = await models.time.byId(newsumula.time)
