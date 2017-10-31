@@ -44,8 +44,4 @@ TimeSchema.methods.newJogador = async function (jogador) {
   return await this.save()
 }
 
-TimeSchema.methods.findJogadorById = async function (id) {
-  return await this.jogadores.id(id)
-}
-
 module.exports = mongoose.model('Time', TimeSchema)
