@@ -1,0 +1,38 @@
+<h2>Sumulas</h2>
+<table>
+  <tr>
+    <th>Arbitro</th>
+    <th>Time1</th>
+    <th>Gols</th>
+    <th>Time2</th>
+    <th>Gols</th>
+  </tr>
+  <tr for(sumula in data.sumulas)>
+    <td>${sumula.arbitro.nome}</td>
+    <td>${sumula.time.nome}</td>
+    <td>${sumula.golTime1}</td>
+    <td>${sumula.time2.nome}</td>
+    <td>${sumula.golTime2}</td>
+  </tr>
+</table>
+<form action="/sumula/" method="POST">
+    Arbitro:
+    <select name="arbitro">
+        <option for(arbitro in data.arbitros) value="${arbitro._id}">${arbitro.nome}</option>
+    </select> <br>
+    TIme 1:
+    <select name="time1">
+        <option for(time in data.times) value="${time._id}">${time.nome}</option>
+    </select> <br>
+    Gols: 
+    <input type="number"><br>
+    Time 2: 
+    <select name="time2">
+        <option for(time in data.times) value="${time._id}">${time.nome}</option>
+    </select> <br>
+    Gols: 
+    <input type="number"><br>
+    <input type="submit" value="Submit">
+</form>
+<a href="/cidade">cidades</a> <br>
+<a href="/time">times</a>
