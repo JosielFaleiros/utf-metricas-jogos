@@ -7,7 +7,7 @@ router.get('/', async function(req, res) {
     let sumulas = await models.sumula.getAll()
     let arbitros = await models.arbitro.getAll()
     let times = await models.time.getAll()
-    res.render('sumula', {
+    res.render('sumulas', {
         times: times,
         arbitros: arbitros,
         sumulas: sumulas

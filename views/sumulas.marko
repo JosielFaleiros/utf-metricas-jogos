@@ -8,7 +8,7 @@
     <th>Gols</th>
   </tr>
   <tr for(sumula in data.sumulas)>
-    <td>${sumula.arbitro.nome}</td>
+    <td><a href="/detalhesumula/${sumula._id}">${sumula.arbitro.nome}</a></td>
     <td>${sumula.time.nome}</td>
     <td>${sumula.golTime1}</td>
     <td>${sumula.time2.nome}</td>
@@ -21,17 +21,17 @@
         <option for(arbitro in data.arbitros) value="${arbitro._id}">${arbitro.nome}</option>
     </select> <br>
     TIme 1:
-    <select name="time1">
+    <select name="time">
         <option for(time in data.times) value="${time._id}">${time.nome}</option>
     </select> <br>
     Gols: 
-    <input type="number"><br>
+    <input type="number" name="golTime1"><br>
     Time 2: 
     <select name="time2">
         <option for(time in data.times) value="${time._id}">${time.nome}</option>
     </select> <br>
     Gols: 
-    <input type="number"><br>
+    <input type="number" name="golTime2"><br>
     <input type="submit" value="Submit">
 </form>
 <a href="/cidade">cidades</a> <br>

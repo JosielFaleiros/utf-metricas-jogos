@@ -6,7 +6,8 @@ var models = require('../model')
 router.get('/:id', async function(req, res) {
     id = req.params['id']
     sumula = await models.sumula.byId(id)
-    res.render('editarsumula', {
+    console.log(sumula)
+    res.render('detalhesumula', {
         sumula: sumula
     })
 })

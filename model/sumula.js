@@ -32,12 +32,13 @@ var SumulaSchema = new mongoose.Schema({
 })
 
 SumulaSchema.statics.getAll = async function () {
-  return await this.find().populate('arbitro')
+  return await this.find().populate('arbitro').populate('time').populate('time2')
 }
 
 SumulaSchema.statics.byId = async function (id) {
-  return await this.findById(id).populate('arbitro').populate('time').populate('time2').exec()
-}
+  return await this.findById(id).populate('arbitro').populate('time').populate('time2').
+  populate('detalheSumula.jogador')
+} 
 
 SumulaSchema.statics.new = async function (sumula) {
   newsumula = new this(sumula)

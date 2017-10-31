@@ -4,7 +4,7 @@ var DetalheSumulaSchema = new mongoose.Schema({
   jogador: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Jogador',
-    required: false
+    required: true
   },
   qtdeGol: {
     type: Number,

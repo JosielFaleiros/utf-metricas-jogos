@@ -38,8 +38,14 @@ TimeSchema.statics.new = async function (time) {
 }
 
 TimeSchema.methods.newJogador = async function (jogador) {
+  jogador = new models.jogador(jogador)
   this.jogadores.push(jogador)
+  jogador.save()
   return await this.save()
+}
+
+TimeSchema.methods.findJogadorById = async function (id) {
+  return await this.jogadores.id(id)
 }
 
 module.exports = mongoose.model('Time', TimeSchema)

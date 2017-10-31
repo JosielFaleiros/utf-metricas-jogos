@@ -1,0 +1,36 @@
+<h1>${data.sumula.time.nome} x ${data.sumula.time2.nome}</h1>
+<h2>Detalhes</h2>
+<table>
+  <tr>
+    <th>Jogador</th>
+    <th>Gols</th>
+    <th>Amarelos</th>
+    <th>Vermelhos</th>
+  </tr>
+  <tr for(detalhe in data.sumula.detalheSumula)>
+    <td>${detalhe.jogador.nome}</td>
+    <td>${detalhe.qtdeGol}</td>
+    <td>${detalhe.cartaoAmarelo}</td>
+    <td>${detalhe.cartaoVermelho}</td>
+  </tr>
+</table>
+<hr>
+<form action="/detalhesumula/" method="POST">
+  <input type="hidden" name="sumula" value="${sumula._id}">
+  Jogador:
+  <select name="jogador">
+    <option disabled>${sumula.time.nome}</option>
+    <option for(jogador in data.sumula.time.jogadores) value="${jogador._id}">${jogador.nome}</option>
+    <option disabled>${sumula.time2.nome}</option>
+    <option for(jogador in data.sumula.time2.jogadores) value="${jogador._id}">${jogador.nome}</option>
+  </select> <br>
+  Gols: 
+  <input type="number" name="qtdeGol" value="0"><br>
+  Cartão amarelo: 
+  <input type="number" name="cartaoAmarelo" value="0"><br>
+  Cartão vermelho: 
+  <input type="number" name="cartaoVermelho" value="0"><br>
+  <input type="submit" value="Submit">
+</form>
+<a href="/cidade">cidades</a> <br>
+<a href="/time">times</a>
