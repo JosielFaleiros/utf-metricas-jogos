@@ -42,7 +42,25 @@ SumulaSchema.statics.byId = async function (id) {
 
 SumulaSchema.statics.new = async function (sumula) {
   newsumula = new this(sumula)
-  return await newsumula.save()
+
+  time1 = await models.time.byId(newsumula.time)
+  time2 = await models.time.byId(newsumula.time2)
+  
+  if (newsumula.golTime1 == newsumula.golTime2) {
+    time1.pontos += 1
+    time2.pontos += 1
+  } else if (newsumula.golTime1 > newsumula.golTime2) {
+    time1.pontos += 3
+  } else {
+    time2.pontos += 3
+  }
+  time1.golsPro += newsumula.golTime1
+  time1.golsContra += newsumula.golTime2
+  time2.golsPro += newsumula.golTime2
+  time2.golsContra += newsumula.golTime1
+  time1.save()
+  time2.save()
+return await newsumula.save()
 }
 
 SumulaSchema.methods.newDetalheSumula = async function (detalheSumula) {
