@@ -1,20 +1,21 @@
-<h2>Sumulas</h2>
+<h2>Jogos</h2>
 <table>
   <tr>
     <th>Arbitro</th>
     <th>Time1</th>
-    <th>Gols</th>
+    <th colspan="3">Placar</th>
     <th>Time2</th>
-    <th>Gols</th>
   </tr>
   <tr for(sumula in data.sumulas)>
     <td><a href="/detalhesumula/${sumula._id}">${sumula.arbitro.nome}</a></td>
     <td>${sumula.time.nome}</td>
     <td>${sumula.golTime1}</td>
-    <td>${sumula.time2.nome}</td>
+    <td>x</td>
     <td>${sumula.golTime2}</td>
+    <td>${sumula.time2.nome}</td>
   </tr>
 </table>
+<hr>
 <form action="/sumula/" method="POST">
     Arbitro:
     <select name="arbitro">
