@@ -4,7 +4,6 @@ var router = express.Router()
 var models = require('../model')
 
 router.get('/', async function(req, res) {
-    console.log(req.query)
     cidades = await models.cidade.getAll()
     res.render('cidades', {
         cidades: cidades
