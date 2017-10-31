@@ -10,7 +10,7 @@ router.get('/', async function(req, res) {
     })
 })
 
-router.post('/new', async function(req, res) {
+router.post('/', async function(req, res) {
     novoTime = await models.time.new(req.body)
     res.redirect('/time')
 })

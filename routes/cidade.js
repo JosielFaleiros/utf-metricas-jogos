@@ -11,13 +11,9 @@ router.get('/', async function(req, res) {
     })
 })
 
-router.post('/new', async function(req, res) {
+router.post('/', async function(req, res) {
     novaCidade = await models.cidade.new(req.body)
     res.redirect('/cidade')
-})
-
-router.get('/new', function(req, res) {
-    res.render('novaCidade')
 })
 
 module.exports = router
