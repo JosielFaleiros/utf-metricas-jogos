@@ -14,8 +14,8 @@ router.get('/', async function(req, res) {
     })
 })
 
-router.post('/', function(req, res) {
-    models.sumula.new(req.body)
+router.post('/', async function(req, res) {
+    await models.sumula.new(req.body)
     res.redirect('/sumula')
 })
 
