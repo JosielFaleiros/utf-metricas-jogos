@@ -30,3 +30,23 @@ var SumulaSchema = new mongoose.Schema({
   detalheSumula: [models.detalhesumula.schema]
 
 })
+
+SumulaSchema.statics.getAll = async function () {
+  return await this.find().populate('arbitro')
+}
+
+SumulaSchema.statics.byId = async function (id) {
+  return await this.findById(id).populate('arbitro').populate('time').populate('time2').exec()
+}
+
+SumulaSchema.statics.new = async function (sumula) {
+  newsumula = new this(sumula)
+  return await newsumula.save()
+}
+
+SumulaSchema.methods.newDetalheSumula = async function (detalheSumula) {
+  this.detalheSumula.push(detalheSumula)
+  return await this.save()
+}
+
+module.exports = mongoose.model('Sumula', SumulaSchema)

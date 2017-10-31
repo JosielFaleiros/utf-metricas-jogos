@@ -22,3 +22,5 @@ var DetalheSumulaSchema = new mongoose.Schema({
     default: 0
   }
 })
+
+module.exports = mongoose.model('DetalheSumula', DetalheSumulaSchema)
