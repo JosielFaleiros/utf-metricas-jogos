@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const Marko = require('express-marko')
 const routes = require('./routes')
+import api from './api/controllers'
+
 const app = express()
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/campeonato', {useMongoClient: true})
@@ -25,5 +27,6 @@ https://stackoverflow.com/questions/8312459/iterate-through-object-properties#an
 */
 Object.keys(routes).map(e => app.use('/'+e, routes[e]))
 
+Object.keys(api).map(controller => app.use('/api/' + controller, new api[controller][controller]().route()))
 
 app.listen(8080)
