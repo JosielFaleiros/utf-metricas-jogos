@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(Marko)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
-
+app.use('/static', express.static('public'))
 app.use(function(req, res, next) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
     next()
