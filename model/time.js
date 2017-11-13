@@ -33,7 +33,7 @@ TimeSchema.statics.byId = async function (id) {
 }
 
 TimeSchema.statics.new = async function (time) {
-  novoTime = new this(time)
+  let novoTime = new this(time)
   return await novoTime.save()
 }
 

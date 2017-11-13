@@ -33,7 +33,7 @@ ArbitroSchema.statics.getAll = async function () {
 }
 
 ArbitroSchema.statics.new = async function (arbitro) {
-  novoArbitro = new this(arbitro)
+  let novoArbitro = new this(arbitro)
   return await novoArbitro.save()
 }
 

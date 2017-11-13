@@ -16,7 +16,7 @@ CidadeSchema.statics.getAll = async function () {
 }
 
 CidadeSchema.statics.new = async function (cidade) {
-  novaCidade = new this(cidade)
+  let novaCidade = new this(cidade)
   return await novaCidade.save()
 }
 

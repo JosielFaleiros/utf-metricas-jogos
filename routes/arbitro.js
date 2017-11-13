@@ -4,8 +4,8 @@ var router = express.Router()
 var models = require('../model')
 
 router.get('/', async function(req, res) {
-    arbitros = await models.arbitro.getAll()
-    cidades = await models.cidade.getAll()
+    let arbitros = await models.arbitro.getAll()
+    let cidades = await models.cidade.getAll()
     res.render('arbitros', {
         arbitros: arbitros,
         cidades: cidades
@@ -13,7 +13,7 @@ router.get('/', async function(req, res) {
 })
 
 router.post('/', async function(req, res) {
-    novoArbitro = models.arbitro.new(req.body)
+    let novoArbitro = models.arbitro.new(req.body)
     res.redirect('/arbitro')
 })
 
