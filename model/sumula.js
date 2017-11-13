@@ -47,8 +47,8 @@ SumulaSchema.statics.new = async function (sumula) {
   
   let newsumula = new this(sumula)
 
-  time1 = await models.time.byId(newsumula.time)
-  time2 = await models.time.byId(newsumula.time2)
+  let time1 = await models.time.byId(newsumula.time)
+  let time2 = await models.time.byId(newsumula.time2)
   
   if (newsumula.golTime1 == newsumula.golTime2) {
     time1.pontos += 1

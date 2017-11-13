@@ -1,5 +1,5 @@
 <include("./header.marko")/>
-<h1>${time.nome}</h1>
+<h1>${data.time.nome}</h1>
 <h2>Jogadores</h2>
 <table>
   <tr>
@@ -21,7 +21,7 @@
 </table>
 <hr>
 <form action="/jogador/" method="POST">
-  <input type="hidden" name="time" value="${time._id}">
+  <input type="hidden" name="time" value="${data.time._id}">
   Nome: <input type="text" name="nome" required><br>
   Rua: <input type="text" name="rua" required><br>
   Numero: <input type="text" name="numero" required><br>

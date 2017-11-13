@@ -15,4 +15,14 @@ router.post('/', async function(req, res) {
     res.redirect('/time')
 })
 
+router.get('/:id', async function(req, res) {
+    let id = req.params['id']
+    let time = await models.time.byId(id)
+    let cidades = await models.cidade.getAll()
+    res.render('jogadores', {
+        time: time,
+        cidades: cidades,
+    })
+})
+
 module.exports = router

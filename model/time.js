@@ -38,9 +38,9 @@ TimeSchema.statics.new = async function (time) {
 }
 
 TimeSchema.methods.newJogador = async function (jogador) {
-  jogador = new models.jogador(jogador)
-  this.jogadores.push(jogador)
-  jogador.save()
+  let novoJogador = new models.jogador(jogador)
+  this.jogadores.push(novoJogador)
+  novoJogador.save()
   return await this.save()
 }
 
